@@ -11,13 +11,13 @@
     <div class="d-flex align-center flex-column" style="margin-top: 240px;">
       <v-card :title="response.patronus" width="800" style="padding: 24px 24px; font-size: ;">
         <v-form @submit.prevent="handleSubmit">
-          <v-text-field v-for="question, index in response.questions.start " :label=question.ua
-            v-model="answers.note[index]" required>
+          <v-text-field v-for="question in response.questions.start " :label=question.ua
+            v-model="answers.answers[question.id]" required>
           </v-text-field>
           <v-container>
             <v-row cols="12" md="4">
               <v-text-field v-for="item, index in response.fields.start" :label=item.title.ua
-                v-model="answers.data[item.id]" :class="{ 'non-first': index != 0 }" required></v-text-field>
+              v-model="answers.data[item.id]" :class="{ 'non-first': index != 0 }" required></v-text-field>
               <v-btn type="submit" block class="mt-2" size="large" color="blue">🚀 Полетіли</v-btn>
             </v-row>
           </v-container>
@@ -36,7 +36,7 @@ export default {
     return {
       response: null,
       answers: {
-        note: {},
+        answers: {},
         data: {}
       }
     }
