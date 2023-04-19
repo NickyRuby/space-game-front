@@ -11,7 +11,7 @@
                     </v-text-field>
                     <v-text-field label="Пароль" v-model="password" required>
                     </v-text-field>
-                    <v-btn type="submit" class="mt-2" size="large" color="blue">🚀 залогінитись</v-btn>
+                    <v-btn type="submit" block class="mt-2" size="large" color="blue">🚀 залогінитись</v-btn>
                 </v-form>
                 <div style="width:100%; text-align: center; margin-top: 16px; color: red;" v-if="errors">Oops!
                     {{ apiAnswerMessage }}</div>

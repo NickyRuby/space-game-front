@@ -37,4 +37,8 @@ html {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+body {
+  background-color: #f2f2f2;
+}
+
 </style>
