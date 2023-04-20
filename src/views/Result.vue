@@ -78,6 +78,8 @@ export default {
         }
     },
     mounted() {
+        console.log('store state at result:');
+        console.log(store);
         console.log('mounting');
         console.log(store);
         fetch('https://spacegame-377714.lm.r.appspot.com//api/me', {

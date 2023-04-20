@@ -76,6 +76,8 @@ export default {
       },
     },
     mounted() {
+        console.log('store state at timer:');
+        console.log(store);
         this.startTimer();
     }
   };

@@ -9,7 +9,7 @@
   </v-toolbar>
   <div v-if="response">
     <div class="d-flex align-center flex-column" style="margin-top: 240px;">
-      <v-card :title="response.patronus" width="800" style="padding: 24px 24px; font-size: 40px ;">
+      <v-card :title="store.test.enterTitle" width="800" style="padding: 24px 24px; font-size: 40px ;">
         <div v-if="!hasStarted">
         <v-form v-model="valid" @submit.prevent="handleSubmit">
         <v-text-field v-for="question in response.questions.start " :label=question.ua
@@ -73,6 +73,7 @@ export default {
         } else {
           console.log('showing timer');
           this.hasStarted = true;
+          store.test.enterTitle = this.answers.answers.Q1;
           // router.push('/finish');
         }
         console.log(response);
@@ -97,6 +98,8 @@ export default {
     }
   },
   mounted() {
+    console.log('store state at start:');
+    console.log(store);
     console.log('mounting');
     console.log(store);
     fetch('https://spacegame-377714.lm.r.appspot.com//api/me', {
