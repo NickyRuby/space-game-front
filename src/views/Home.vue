@@ -4,12 +4,13 @@
     <v-toolbar-title>Космічна гра
     </v-toolbar-title>
     <div v-if="response">
-      <div @click="logOut" style="width: 100%; line-height: 24px; text-align: left; margin-right: 16px;">Log out</div>
+     <div @click="logOut" style="width: 100%; line-height: 24px; text-align: left; margin-right: 16px;">Log out</div>
     </div>
   </v-toolbar>
   <div v-if="response">
     <div class="d-flex align-center flex-column" style="margin-top: 240px;">
       <v-card :title="response.patronus" width="800" style="padding: 24px 24px; font-size: 40px ;">
+        <div v-if="!hasStarted">
         <v-form v-model="valid" @submit.prevent="handleSubmit">
         <v-text-field v-for="question in response.questions.start " :label=question.ua
             v-model="answers.answers[question.id]" :error-messages="validationErrors.answers ? validationErrors.answers[question.id] : ''">
@@ -22,18 +23,27 @@
             </v-row>
           </v-container>
         </v-form>
+      </div> 
+      <div v-else-if="hasStarted">
+           <Timer /> 
+      </div>
       </v-card>
     </div>
-  </div>
+</div>
+
 </template>
 
 <script>
 import router from '@/router';
 import store from '@/store'
+import Timer from '@/components/Timer.vue'  
+
+
 export default {
   inject: ["store"],
   data() {
     return {
+      hasStarted: false,
       response: null,
       valid: false,
       validationErrors: {},
@@ -61,8 +71,9 @@ export default {
           this.validationErrors = response.errors;
           console.log(this.validationErrors);
         } else {
-          console.log('going to finish');
-          router.push('/finish');
+          console.log('showing timer');
+          this.hasStarted = true;
+          // router.push('/finish');
         }
         console.log(response);
       }).catch(err => {
@@ -107,4 +118,9 @@ export default {
   /* Add margin to non-first elements */
   margin-left: 16px;
 }
+
+body {
+  background-color: #f2f2f2 !;
+}
+
 </style>

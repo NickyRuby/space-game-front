@@ -14,11 +14,12 @@ import { createApp } from 'vue'
 import { registerPlugins } from '@/plugins'
 
 import  store  from './store'
-
+import Timer from '@/components/Timer.vue'
 
 const app = createApp(App)
 
 app.provide("store", store);
+app.component('Timer', Timer);
 
 registerPlugins(app)
 
