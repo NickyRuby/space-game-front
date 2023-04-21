@@ -72,6 +72,7 @@ export default {
       },
       finishEnter() {
         console.log('finishing');
+        this.validationErrors = {}
         router.push('/finish');
       },
     },

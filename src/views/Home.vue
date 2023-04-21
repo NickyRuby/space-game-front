@@ -74,6 +74,7 @@ export default {
           console.log('showing timer');
           this.hasStarted = true;
           store.test.enterTitle = this.answers.answers.Q1;
+          this.validationErrors = {}
           // router.push('/finish');
         }
         console.log(response);
