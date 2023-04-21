@@ -70,11 +70,16 @@ export default {
         this.isPaused = false;
         this.isRunning = false;
       },
+      // todo: it pushes but not updating, just route change 
       finishEnter() {
         console.log('finishing');
-        this.validationErrors = {}
         router.push('/finish');
       },
+    },
+    watch : {
+      secondsLeft() {
+      document.title = '' + this.minutes + ":" + this.seconds + ' · ' + store.test.enterTitle;
+  }
     },
     mounted() {
         console.log('store state at timer:');

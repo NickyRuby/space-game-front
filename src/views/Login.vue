@@ -73,6 +73,7 @@ export default {
     mounted() {
         console.log('store state:');
         console.log(store);
+        document.title = 'Космічна гра';
     }
 }
 </script>

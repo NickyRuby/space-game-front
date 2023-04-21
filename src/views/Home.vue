@@ -99,6 +99,7 @@ export default {
     }
   },
   mounted() {
+    document.title = 'Виліт'
     console.log('store state at start:');
     console.log(store);
     console.log('mounting');
