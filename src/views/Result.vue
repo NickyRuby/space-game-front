@@ -1,9 +1,9 @@
 <template>
     <div v-if="response">
-        <div class="d-flex align-center flex-column" style="margin-top: 240px;">
-            <v-card title="Як результати?" width="800" style="padding: 24px 24px;">
+        <div class="d-flex align-center flex-column justify-center" style="margin-top: 240px;">
+            <v-card title="Як результати?" width="640" style="padding: 24px 24px;">
                 <v-form @submit.prevent="handleSubmit">
-                    <v-text-field v-for="question in response.questions.finish " :label=question.ua variant="solo"
+                    <v-text-field v-for="question in response.questions.finish " :label=question.ua
                         v-model="answers.answers[question.id]" variant="solo" :error-messages="validationErrors.answers ? validationErrors.answers[question.id] : ''" required>
                     </v-text-field>
                     <v-container>

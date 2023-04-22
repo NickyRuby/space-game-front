@@ -24,9 +24,13 @@ export default {
 <style>
 
 body {
-  background-color: #f2f2f2 !important;
+  background: linear-gradient(236.62deg, #F3F5F9 15.21%, rgba(249, 255, 251, 0.50457) 54.37%, rgba(224, 224, 224, 0) 93.52%) !important;
   font-family: 'Rubik', sans-serif;
   font-weight: 500; 
+}
+
+.v-application {
+  background: none !important;
 }
 
 .v-card {
@@ -59,13 +63,19 @@ body {
     --v-btn-size: 1rem;
     --v-btn-height: 56px !important;
     border-radius: 8px !important;
+    box-shadow: none !important;
 }
 
 .v-field--variant-solo { 
   background: #FAFAFA !important;
-  border: 1px solid #E7DDDD !important;
+  border: 1px solid #E7E7E7 !important;
   border-radius: 8px !important;
   box-shadow: none !important;
+}
+
+:root {
+  --arc-palette-background:  #3668fef4 !important;
+  --arc-palette-backgroundExtra: #000 !important;
 }
 
 </style>

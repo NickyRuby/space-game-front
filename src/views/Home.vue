@@ -1,8 +1,8 @@
 <template>
-  <MyHeader />
   <div v-if="response">
-    <div class="d-flex align-center flex-column" style="margin-top: 240px;">
-      <v-card :title="store.test.enterTitle" width="800" style="padding: 24px 24px; font-size: 40px ;">
+    <MyHeader :patronus="store.auth.patronus" :isLoggedIn="store.isLoggedIn"/>
+    <div class="d-flex align-center flex-column justify-center h-screen">
+      <v-card :title="store.test.enterTitle" width="640" style="padding: 24px 24px; font-size: 40px ;">
         <div v-if="!hasStarted">
         <v-form v-model="valid" @submit.prevent="handleSubmit">
         <v-text-field v-for="question in response.questions.start " :label=question.ua
@@ -107,15 +107,13 @@ export default {
       console.log(data);
       this.response = data;
       store.isLoggedIn = true;
+      store.auth = data;
     }).catch(err => console.error(err));
   }
 }
 </script>
 
 <style>
-body {
-  background-color: #F3F5F9 !important;
-}
 .non-first {
   /* Add margin to non-first elements */
   margin-left: 16px;

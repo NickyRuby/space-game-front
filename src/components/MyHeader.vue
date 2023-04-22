@@ -1,8 +1,16 @@
 <template>
-  <v-toolbar class="elevation-4">
+  <v-toolbar>
     <v-icon end icon="mdi-saturn"></v-icon>
-    <v-toolbar-title>Космічна гра</v-toolbar-title>
-     <!-- <div v-if="store.isLoggedIn" style="width: 100%; height: 40px;  line-height: 24px; text-align: left; margin-right: 16px;" @click="logOut">Log out</div> -->
+    <v-toolbar-title>🪐 </v-toolbar-title>
+     <v-btn class="ma-2" style="font-size: 24px;" variant="text">{{patronus}}</v-btn>
+     <div v-if="isLoggedIn"  @click="logOut">
+        <v-btn
+        class="ma-2"
+        variant="text"
+        icon="mdi-exit-to-app"
+        color="gray"
+        ></v-btn>
+    </div>
   </v-toolbar>
 </template>
 
@@ -12,9 +20,13 @@ import store from '@/store'
 import router from '@/router';
 
 export default {
+    props: {
+        patronus: String,
+        isLoggedIn: Boolean
+    },
     data() {
         return {
-            isLoggedIn: store.isLoggedIn
+            date: new Date().toISOString().slice(0, 10),
         }
     },
     methods: {
@@ -35,7 +47,14 @@ export default {
         },
     },
     mounted() {
+        console.log('from header:')
         console.log(store);
+    },
+    watch : {
+        store(){
+            this.patronus = store.auth.patronus;
+            this.isLoggedIn = store.isLoggedIn;
+        }
     }
 }
 
@@ -48,7 +67,7 @@ export default {
 }
 
 .v-toolbar-title {
-    font-size: 16px !important;
+    font-size: 24px !important;
 }
 
 </style>

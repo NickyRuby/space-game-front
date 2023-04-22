@@ -1,7 +1,7 @@
 <template>
     <MyHeader />
     <div v-if="!response">
-        <div class="d-flex align-center flex-column" style="margin-top: 240px;">
+        <div class="d-flex align-center flex-column justify-center h-screen">
             <v-card title="Привіт" width="640" style="padding: 24px 24px;">
                 <v-form @submit.prevent="sendData">
                     <v-text-field label="Користувач" v-model="username" variant="solo" required>
