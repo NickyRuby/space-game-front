@@ -1,22 +1,22 @@
 <template>
     <div class="timer">
-    <v-progress-circular
-        :size="200"
-        :width="8"
-        :model-value="progress"
-        color="primary"
-        >
-      <h1>{{ minutes }}:{{ seconds }}</h1>
-    </v-progress-circular>
-    <div class="actions">
-      <v-btn @click="startTimer" v-if="!isRunning && !isPaused">Start</v-btn>
-      <v-btn @click="pauseTimer" v-if="isRunning && !isPaused">Pause</v-btn>
-      <v-btn @click="resumeTimer" v-if="!isRunning && isPaused">Resume</v-btn>
-      <v-btn @click="resetTimer" v-if="!isRunning && isPaused">Reset</v-btn>
-    </div>
-    <v-btn @click="finishEnter" style="margin-top: 48px !important;" type="submit" block class="mt-2" size="large" color="blue">🚀 Закінчити виліт</v-btn>
-    </div>
-  </template>
+      <v-progress-circular
+          :size="200"
+          :width="8"
+          :model-value="progress"
+          color="primary"
+          >
+        <h1>{{ minutes }}:{{ seconds }}</h1>
+      </v-progress-circular>
+      <div class="actions">
+        <v-btn @click="startTimer" v-if="!isRunning && !isPaused">Start</v-btn>
+        <v-btn @click="pauseTimer" v-if="isRunning && !isPaused">Pause</v-btn>
+        <v-btn @click="resumeTimer" v-if="!isRunning && isPaused">Resume</v-btn>
+        <v-btn @click="resetTimer" v-if="!isRunning && isPaused">Reset</v-btn>
+      </div>
+      <v-btn @click="finishEnter" style="margin-top: 48px !important;" type="submit" block class="mt-2" size="large" color="blue">🚀 Закінчити виліт</v-btn>
+      </div>
+</template>
   
 <script>
 import  store from '@/store';
@@ -100,7 +100,7 @@ export default {
   
   .v-btn {
 
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px;
     margin-right: 24px !important;
     margin-top: 40px;

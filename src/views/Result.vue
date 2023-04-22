@@ -3,7 +3,7 @@
         <div class="d-flex align-center flex-column" style="margin-top: 240px;">
             <v-card title="Як результати?" width="800" style="padding: 24px 24px;">
                 <v-form @submit.prevent="handleSubmit">
-                    <v-text-field v-for="question in response.questions.finish " :label=question.ua
+                    <v-text-field v-for="question in response.questions.finish " :label=question.ua variant="solo"
                         v-model="answers.answers[question.id]" variant="solo" :error-messages="validationErrors.answers ? validationErrors.answers[question.id] : ''" required>
                     </v-text-field>
                     <v-container>
@@ -18,7 +18,7 @@
                                     </v-row>
                                 </div>
                                 <div v-else-if="item.schema.type">
-                                    <v-text-field :label=item.title.ua v-model="answers.data[item.id]"
+                                    <v-text-field :label=item.title.ua v-model="answers.data[item.id]" 
                                         :class="{ 'non-first': index != 0 }" variant="solo" :error-messages="validationErrors.data ? validationErrors.data[item.id] : ''" ></v-text-field>
                                 </div>
                             </div>

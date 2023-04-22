@@ -15,11 +15,13 @@ import { registerPlugins } from '@/plugins'
 
 import  store  from './store'
 import Timer from '@/components/Timer.vue'
+import MyHeader from './components/MyHeader.vue'
 
 const app = createApp(App)
 
 app.provide("store", store);
 app.component('Timer', Timer);
+app.component('MyHeader', MyHeader)
 
 registerPlugins(app)
 
