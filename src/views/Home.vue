@@ -1,7 +1,7 @@
 <template>
   <div v-if="response">
     <MyHeader :patronus="store.auth.patronus" :isLoggedIn="store.isLoggedIn"/>
-    <div class="d-flex align-center flex-column justify-center h-screen">
+    <div class="d-flex align-center flex-column justify-center h-screen ">
       <v-card :title="store.test.enterTitle" width="640" style="padding: 24px 24px; font-size: 40px ;">
         <div v-if="!hasStarted">
         <v-form v-model="valid" @submit.prevent="handleSubmit">

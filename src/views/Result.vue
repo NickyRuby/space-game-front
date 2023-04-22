@@ -1,6 +1,7 @@
 <template>
     <div v-if="response">
-        <div class="d-flex align-center flex-column justify-center" style="margin-top: 240px;">
+        <MyHeader :patronus="store.auth.patronus" :isLoggedIn="store.isLoggedIn"/>
+        <div class="d-flex align-center flex-column justify-center h-screen">
             <v-card title="Як результати?" width="640" style="padding: 24px 24px;">
                 <v-form @submit.prevent="handleSubmit">
                     <v-text-field v-for="question in response.questions.finish " :label=question.ua
@@ -65,6 +66,7 @@ export default {
                 else if (response.message) {
                     console.log('all good');
                     console.log(response.message);
+                    store.test.enterTitle = '';
                     this.validationErrors = {}
                     router.push('/start');
                 }

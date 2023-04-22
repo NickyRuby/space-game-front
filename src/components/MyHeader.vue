@@ -1,6 +1,5 @@
 <template>
   <v-toolbar>
-    <v-icon end icon="mdi-saturn"></v-icon>
     <v-toolbar-title>🪐 </v-toolbar-title>
      <v-btn class="ma-2" style="font-size: 24px;" variant="text">{{patronus}}</v-btn>
      <div v-if="isLoggedIn"  @click="logOut">

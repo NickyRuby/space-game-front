@@ -92,6 +92,10 @@ export default {
   <style scoped>
   .timer {
     text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
   }
   
   h1 {
@@ -102,7 +106,6 @@ export default {
 
     font-size: 14px;
     padding: 10px;
-    margin-right: 24px !important;
     margin-top: 40px;
   }
   </style>

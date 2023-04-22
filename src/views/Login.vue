@@ -8,7 +8,7 @@
                     </v-text-field>
                     <v-text-field label="Пароль" v-model="password" variant="solo" required>
                     </v-text-field>
-                    <v-btn type="submit" block class="mt-2 rounded-lg" size="large" color="blue">🚀 залогінитись</v-btn>
+                    <v-btn type="submit" :loading="loading" block class="mt-2 rounded-lg" size="large" color="blue">{{ loading ? 'Loading...' : '🚀 залогінитись' }}</v-btn>
                 </v-form>
                 <div style="width:100%; text-align: center; margin-top: 16px; color: red;" v-if="errors">Oops!
                     {{ apiAnswerMessage }}</div>
@@ -26,6 +26,7 @@ export default {
     inject: ["store"],
     data() {
         return {
+            loading: false,
             username: "",
             password: "",
             errors: false,
@@ -38,6 +39,7 @@ export default {
             // router.push('/finish')
         },
         async sendData() {
+            this.loading = true;
             console.log("logging user...");
             const data = {
                 username: this.username,
@@ -52,6 +54,7 @@ export default {
             }).then(response => response.json()).then(response => {
                 console.log(response);
                 if (response.error) {
+                    this.loading = false;
                     this.isLoggedIn = false;
                     this.errors = true;
                     this.apiAnswerMessage = response.error;
