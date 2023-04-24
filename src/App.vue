@@ -16,21 +16,36 @@ export default {
     // } else {
     //   router.push('/login');
     // }
+
+    const root = document.documentElement;
+ 
+    document.addEventListener('mousemove', evt => {
+    let x = evt.clientX / innerWidth;
+    let y = evt.clientY / innerHeight;
+    let degree = `${Math.round(y * 300) }deg`
+ 
+    root.style.setProperty('--mouse-x', x);
+    root.style.setProperty('--mouse-y', y);
+    root.style.setProperty('--firstGradColor', store.firstGradColor);
+    root.style.setProperty('--secondGradColor', store.secondGradColor);
+    root.style.setProperty('--grad-degree', degree)
+  });
 }
 }
 
 </script>
 
+
 <style>
 
 body {
-  background: linear-gradient(236.62deg, #F3F5F9 15.21%, rgba(249, 255, 251, 0.50457) 54.37%, rgba(224, 224, 224, 0) 93.52%) !important;
+  background: linear-gradient(var(--grad-degree), var(--firstGradColor) 50%, var(--secondGradColor) 100%) !important; 
   font-family: 'Rubik', sans-serif;
-  font-weight: 500; 
+  font-weight: 500;
 }
 
 .v-application {
-  background: none !important;
+  background: none !important; 
 }
 
 .v-card {

@@ -1,19 +1,19 @@
 <template>
     <div class="timer">
       <v-progress-circular
-          :size="200"
+          :size="280"
           :width="8"
           :model-value="progress"
           color="primary"
           >
         <h1>{{ minutes }}:{{ seconds }}</h1>
-      </v-progress-circular>
-      <div class="actions">
+        <div class="actions">
         <v-btn @click="startTimer" v-if="!isRunning && !isPaused">Start</v-btn>
         <v-btn @click="pauseTimer" v-if="isRunning && !isPaused">Pause</v-btn>
         <v-btn @click="resumeTimer" v-if="!isRunning && isPaused">Resume</v-btn>
         <v-btn @click="resetTimer" v-if="!isRunning && isPaused">Reset</v-btn>
       </div>
+      </v-progress-circular>
       <v-btn @click="finishEnter" style="margin-top: 48px !important;" type="submit" block class="mt-2" size="large" color="blue">🚀 Закінчити виліт</v-btn>
       </div>
 </template>
@@ -96,8 +96,13 @@ export default {
     flex-flow: column;
     justify-items: center;
     align-items: center;
+    padding-top: 32px;
   }
   
+  .v-progress-circular__content {
+    margin-top: 40px !important;
+  }
+
   h1 {
     font-size: 48px;
   }
@@ -106,7 +111,7 @@ export default {
 
     font-size: 14px;
     padding: 10px;
-    margin-top: 40px;
+    margin-top: 24px;
   }
   </style>
   

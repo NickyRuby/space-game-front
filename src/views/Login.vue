@@ -60,15 +60,17 @@ export default {
                     this.apiAnswerMessage = response.error;
                 }
                 else {
-                    store.isLoggedIn = true;
                     console.log(store);
                     store.auth = data;
+                    store.isLoggedIn = true;
                     router.push("/start");
                 }
             }).catch(err => console.log(err));
         }
     },
     mounted() {
+        store.firstGradColor = '#85FFBD';
+        store.secondGradColor = '#0df1fb';
         console.log("store state:");
         console.log(store);
         document.title = "Космічна гра";

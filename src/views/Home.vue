@@ -1,7 +1,7 @@
 <template>
   <div v-if="response">
     <MyHeader :patronus="store.auth.patronus" :isLoggedIn="store.isLoggedIn"/>
-    <div class="d-flex align-center flex-column justify-center h-screen ">
+    <div class="d-flex align-center flex-column justify-center h-screen  ">
       <v-card :title="store.test.enterTitle" width="640" style="padding: 24px 24px; font-size: 40px ;">
         <div v-if="!hasStarted">
         <v-form v-model="valid" @submit.prevent="handleSubmit">
@@ -31,7 +31,6 @@ import router from '@/router';
 import store from '@/store'
 import Timer from '@/components/Timer.vue'
 import MyHeader from '@/components/MyHeader.vue';
-
 
 export default {
   inject: ["store"],
@@ -93,6 +92,8 @@ export default {
     }
   },
   mounted() {
+    store.firstGradColor = '#FFDEE9';
+    store.secondGradColor = '#8ab9ee';
     document.title = 'Виліт'
     console.log('store state at start:');
     console.log(store);
